@@ -3,5 +3,6 @@ import { CartaoTipo } from "./cartao-tipo.enum";
 
 export interface FindQuery {
   status?: CartaoStatus,
-  tipo?: CartaoTipo
+  tipo?: CartaoTipo,
+  rede?: string
 }

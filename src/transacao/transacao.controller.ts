@@ -1,15 +1,33 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { 
+  SolicitarCartaoDto, 
+  SolicitarBloqueioDto, 
+  SolicitarDesbloqueioDto 
+} from './dto';
 import { TransacaoService } from './transacao.service';
-import { CreateTransacaoDto } from './dto/create-transacao.dto';
-import { UpdateTransacaoDto } from './dto/update-transacao.dto';
 
 @Controller('transacao')
 export class TransacaoController {
   constructor(private readonly transacaoService: TransacaoService) {}
 
-  @Post()
-  create(@Body() createTransacaoDto: CreateTransacaoDto) {
-    return this.transacaoService.create(createTransacaoDto);
+  @Post('cartao')
+  solicitarCartao(@Body() solicitarCartaoDto: SolicitarCartaoDto) {
+    return this.transacaoService.solicitarCartao(solicitarCartaoDto);
+  }
+
+  @Patch('cartao/bloqueio')
+  solicitarBloqueio(@Body() solicitarBloqueioDto: SolicitarBloqueioDto){
+
+  }
+
+  @Patch('cartao/desbloqueio')
+  solicitarDesbloqueio(@Body() solicitarDesbloqueioDto: SolicitarDesbloqueioDto){
+    
+  }
+
+  @Delete('cartao/cancelar')
+  cancelarCartao(@Param('id') id: string) {
+    return this.transacaoService.remove(+id);
   }
 
   @Get()
@@ -22,13 +40,4 @@ export class TransacaoController {
     return this.transacaoService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTransacaoDto: UpdateTransacaoDto) {
-    return this.transacaoService.update(+id, updateTransacaoDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.transacaoService.remove(+id);
-  }
 }

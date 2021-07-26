@@ -4,6 +4,7 @@ import { RedeController } from './rede.controller';
 
 @Module({
   controllers: [RedeController],
-  providers: [RedeService]
+  providers: [RedeService],
+  exports: [RedeService]
 })
 export class RedeModule {}

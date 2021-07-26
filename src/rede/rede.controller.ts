@@ -19,7 +19,7 @@ export class RedeController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.redeService.findOne(+id);
+    return this.redeService.findOne(id);
   }
 
   @Patch(':id')

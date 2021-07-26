@@ -1,4 +1,6 @@
 export class Historico {
-    id: string;
-    
+  id: string;
+  transacao: string;
+  cartao: string;
+  data: Date;
 }

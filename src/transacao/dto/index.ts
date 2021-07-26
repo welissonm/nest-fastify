@@ -1,0 +1,5 @@
+export { CriarTransacaoDto } from './criar-transacao.dto'
+export { SolicitarBloqueioDto } from './solicitar-bloqueio.dto'
+export { SolicitarDesbloqueioDto } from './solicitar-desbloqueio.dto'
+export { SolicitarCartaoDto } from './solicitar-cartao.dto'
+export { SolicitarCancelamentoDto } from './solicitar-cancelamento.dto'

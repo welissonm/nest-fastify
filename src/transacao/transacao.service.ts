@@ -1,11 +1,18 @@
 import { Injectable } from '@nestjs/common';
-import { CreateTransacaoDto } from './dto/create-transacao.dto';
-import { UpdateTransacaoDto } from './dto/update-transacao.dto';
+import { CriarTransacaoDto, SolicitarCartaoDto } from './dto';
+import { SOLICITACAO_CARTAO_CREDITO } from './constantes'
 
 @Injectable()
 export class TransacaoService {
-  create(createTransacaoDto: CreateTransacaoDto) {
-    return 'This action adds a new transacao';
+  criarTransacao(criarTransacaoDto: CriarTransacaoDto) {
+  }
+
+  solicitarCartao(solidicarCartaoDto: SolicitarCartaoDto){
+    const dto = new CriarTransacaoDto()
+    dto.nome = SOLICITACAO_CARTAO_CREDITO
+    dto.descricao = ''
+    dto.usuario = ''
+    const transacao = this.criarTransacao(dto)
   }
 
   findAll() {
@@ -14,10 +21,6 @@ export class TransacaoService {
 
   findOne(id: number) {
     return `This action returns a #${id} transacao`;
-  }
-
-  update(id: number, updateTransacaoDto: UpdateTransacaoDto) {
-    return `This action updates a #${id} transacao`;
   }
 
   remove(id: number) {

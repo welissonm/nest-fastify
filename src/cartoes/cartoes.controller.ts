@@ -16,17 +16,16 @@ export class CartoesController {
   @Get()
   findAll(@Query() query: FindQuery) {
     console.log(query);
-    return this.cartoesService.findAll();
+    return this.cartoesService.findAll(query);
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.cartoesService.findOne(+id);
+    return this.cartoesService.findOne(id);
   }
 
   @Get('portador/:id')
-  findByPortador(){
-
+  findByPortador(@Param('id') id: string){
+    return this.findByPortador(id);
   }
-
 }
