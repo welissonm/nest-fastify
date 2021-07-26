@@ -57,3 +57,7 @@ src/app/homepage/pages/**/*.html
 
 # Build
 /.cache
+
+
+# enviroments files
+*.env

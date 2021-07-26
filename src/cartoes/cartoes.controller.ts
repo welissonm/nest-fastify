@@ -11,7 +11,8 @@ import { FindQuery } from './find-query.interface';
 
 @Controller('cartoes')
 export class CartoesController {
-  constructor(private readonly cartoesService: CartoesService) {}
+  constructor(private readonly cartoesService: CartoesService) {
+  }
 
   @Get()
   findAll(@Query() query: FindQuery) {
